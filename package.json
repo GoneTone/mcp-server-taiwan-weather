@@ -1,0 +1,55 @@
+{
+  "name": "@gonetone/mcp-server-taiwan-weather",
+  "version": "1.0.0",
+  "description": "用於取得臺灣中央氣象署 API 資料的 Model Context Protocol (MCP) Server",
+  "license": "MIT",
+  "author": {
+    "name": "張文相 Wenxiang Zhang (旋風之音 GoneTone)",
+    "email": "p29022716@gmail.com",
+    "url": "https://github.com/GoneTone"
+  },
+  "homepage": "https://github.com/GoneTone/mcp-server-taiwan-weather",
+  "bugs": "https://github.com/GoneTone/mcp-server-taiwan-weather/issues",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "watch": "tsup --watch",
+    "inspector": "npx -y @modelcontextprotocol/inspector -e CWA_API_KEY={請輸入您的 CWA_API_KEY} node .",
+    "format": "eslint --fix .",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.7.0",
+    "axios": "^1.8.4",
+    "universal-user-agent": "^7.0.2",
+    "zod": "^3.24.2",
+    "zod-to-json-schema": "^3.24.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "@types/node": "^22.13.12",
+    "eslint": "^9.23.0",
+    "globals": "^16.0.0",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.27.0"
+  },
+  "keywords": [
+    "mcp",
+    "model context protocol",
+    "mcp server",
+    "model context protocol server",
+    "modelcontextprotocol",
+    "mcp server taiwan weather",
+    "taiwan weather",
+    "weather",
+    "taiwan",
+    "中央氣象署"
+  ],
+  "packageManager": "yarn@4.7.0"
+}
