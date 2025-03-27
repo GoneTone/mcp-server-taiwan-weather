@@ -61,6 +61,61 @@ MCP 是一個開放協議，它標準化了應用程式如何為大型語言模�
 
 如果要在其他支援 MCP 的應用程式中使用，請參考該應用程式的設定文件。
 
+## Windows npx 問題
+
+如果在 Windows 上使用 npx 執行 MCP Server 時無法執行，可以改用以下其中一個方法嘗試：
+
+### 使用 cmd 執行 npx
+
+配置改用 `cmd` 執行 `npx`：
+
+```json
+{
+  "mcpServers": {
+    "taiwan-weather": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@gonetone/mcp-server-taiwan-weather"
+      ],
+      "env": {
+        "CWA_API_KEY": "<您的中央氣象署 API 授權碼>"
+      }
+    }
+  }
+}
+```
+
+### 改用 `node` 執行
+
+將 `@gonetone/mcp-server-taiwan-weather` 全域安裝：
+
+```bash
+npm install -g @gonetone/mcp-server-taiwan-weather
+```
+
+然後配置改用 `node` 執行：
+
+```json
+{
+  "mcpServers": {
+    "taiwan-weather": {
+      "command": "node",
+      "args": [
+        "<your-path>/node_modules/@gonetone/mcp-server-taiwan-weather"
+      ],
+      "env": {
+        "CWA_API_KEY": "<您的中央氣象署 API 授權碼>"
+      }
+    }
+  }
+}
+```
+
+您可以使用 `npm root -g` 指令來查看全域安裝的 `node_modules` 目錄路徑。
+
 ## 貢獻
 
 Issues 和 Pull requests 可以在 GitHub 上的 https://github.com/GoneTone/mcp-server-taiwan-weather 提出。
