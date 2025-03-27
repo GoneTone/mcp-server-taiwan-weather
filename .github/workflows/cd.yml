@@ -1,0 +1,42 @@
+name: CD
+
+on:
+  release:
+    types: [ published ]
+
+jobs:
+  npm-publish:
+    runs-on: ${{ matrix.operating-system }}
+    environment: cd
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        operating-system: [ ubuntu-latest ]
+        node-version: [ 22.x ]
+
+    name: NPM Publish
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: TypeScript Compiler
+        run: yarn build
+
+      - name: Publish
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
