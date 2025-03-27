@@ -16,6 +16,5 @@ node_modules
 #!.yarn/cache
 .pnp.*
 
-yarn.lock
 .idea
 dist
