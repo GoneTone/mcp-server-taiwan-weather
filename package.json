@@ -19,7 +19,6 @@
   "scripts": {
     "build": "tsup",
     "watch": "tsup --watch",
-    "inspector": "npx -y @modelcontextprotocol/inspector -e CWA_API_KEY={請輸入您的 CWA_API_KEY} node .",
     "format": "eslint --fix .",
     "lint": "eslint ."
   },
