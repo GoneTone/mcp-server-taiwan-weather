@@ -34,8 +34,9 @@ import path from 'node:path';
 
 const indexFile = path.resolve(__dirname, 'src/index.ts');
 const indexContent = fs.readFileSync(indexFile, 'utf-8');
-const headerCommentRegex = /^\/\*[\s\S]*?\*\//;
-const headerComment = indexContent.match(headerCommentRegex)?.[0] || '';
+const indexContentWithoutShebang = indexContent.replace(/^#!.*\n\n/, '');
+const copyrightCommentRegex = /^\/\*[\s\S]*?\*\//;
+const copyrightComment = indexContentWithoutShebang.match(copyrightCommentRegex)?.[0] || '';
 
 export default defineConfig({
   entry: ['src/index.ts'],
@@ -49,9 +50,9 @@ export default defineConfig({
   splitting: false,
   skipNodeModulesBundle: true,
   sourcemap: false,
-  shims: false,
+  shims: true,
   keepNames: false,
   banner: {
-    js: headerComment,
+    js: copyrightComment,
   },
 });
