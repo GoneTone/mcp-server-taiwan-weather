@@ -1,0 +1,32 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
+  "name": "io.github.GoneTone/mcp-server-taiwan-weather",
+  "description": "用於取得臺灣中央氣象署 API 資料的 Model Context Protocol (MCP) Server",
+  "status": "active",
+  "repository": {
+    "url": "https://github.com/GoneTone/mcp-server-taiwan-weather",
+    "source": "github"
+  },
+  "version": "{{VERSION}}",
+  "packages": [
+    {
+      "registry_type": "npm",
+      "registry_base_url": "https://registry.npmjs.org",
+      "identifier": "@gonetone/mcp-server-taiwan-weather",
+      "version": "{{VERSION}}",
+      "runtime_hint": "npx",
+      "transport": {
+        "type": "stdio"
+      },
+      "environment_variables": [
+        {
+          "name": "CWA_API_KEY",
+          "description": "您的中央氣象署 API 授權碼。 請前往 https://opendata.cwa.gov.tw/user/authkey，登入後點擊 \"取得授權碼\" 取得。",
+          "format": "string",
+          "is_required": true,
+          "is_secret": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "name": "@gonetone/mcp-server-taiwan-weather",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "用於取得臺灣中央氣象署 API 資料的 Model Context Protocol (MCP) Server",
   "license": "MIT",
   "author": {
